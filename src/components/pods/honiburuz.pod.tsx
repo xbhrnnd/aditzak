@@ -4,10 +4,10 @@ export const HoniBuruzPod: React.FC = () => {
   return (
     <>
       <div>
-        <p>Honi buruzko informazioa laster...</p>
+        <p>Honi buruzko informazioa laster.</p>
       </div>
       <div>
-        <p>Illustrations by https://icons8.com</p>
+        <p>Ilustrazioak: https://icons8.com.</p>
       </div>
     </>
   );
