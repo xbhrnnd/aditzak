@@ -18,9 +18,6 @@ export const GoiburuaPod: React.FC = () => {
           </Link>
       </Nav>
       <Navbar.Collapse className="justify-content-end">
-          <Link to="/lehen-hitza" className="navbar-esteka">
-            Lehen hitza euskaraz
-          </Link>
           <Link to="/honiburuz" className="navbar-esteka">
             Honi buruz
           </Link>
