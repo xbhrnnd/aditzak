@@ -1,5 +1,5 @@
 ## EUSKARA LANDUZ
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b7be8b15-d4cd-4cd6-b860-3d5299a260fa/deploy-status)](https://app.netlify.com/sites/aditzak/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aac0a468-9962-4703-b618-6bf76bbb4a73/deploy-status)](https://app.netlify.com/sites/aditzak/deploys)
 <br />
 https://aditzak.netlify.app
 
