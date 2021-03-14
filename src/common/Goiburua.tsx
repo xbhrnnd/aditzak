@@ -10,17 +10,11 @@ const Goiburua: React.FC = () => {
         <span className='navbar-izena'>EUSKARA LANDUZ</span>
       </Navbar.Brand>
       <Nav className='mr-auto menua'>
-          <Link to='/' className='navbar-esteka'>
-            Hasiera
-          </Link>
-          <Link to='/aditzak' className='navbar-esteka'>
-            Aditz laguntzailea
-          </Link>
+          <Link to='/' className='navbar-esteka'>Hasiera</Link>
+          <Link to='/aditzak' className='navbar-esteka'>Aditz laguntzailea</Link>
       </Nav>
       <Navbar.Collapse className='justify-content-end'>
-          <Link to='/honiburuz' className='navbar-esteka'>
-            Honi buruz
-          </Link>
+          <Link to='/honiburuz' className='navbar-esteka'>Honi buruz</Link>
       </Navbar.Collapse>
     </Navbar>
   );

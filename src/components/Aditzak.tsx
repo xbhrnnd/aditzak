@@ -35,7 +35,6 @@ import {
 } from '../core/constants/aditzak.constants';
 
 const Aditzak: React.FC = () => {
-
   const [indikatiboa, setIndikatiboa] = useState<any>(indikatiboaBatua);
   const [ahalera, setAhalera] = useState<any>(ahaleraBatua);
   const [subjuntiboa, setSubjuntiboa] = useState<any>(subjuntiboaBatua);
@@ -149,16 +148,8 @@ const Aditzak: React.FC = () => {
     // eslint-disable-next-line
   }, [aditzModua, aditzAldia, aditzMota, norkIz, noriIz, norIz]);
 
-
-
   return (
     <>
-      {/*       <Breadcrumb>
-        <Breadcrumb.Item>
-          <Link to='/'>Hasiera</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>Aditz laguntzailea</Breadcrumb.Item>
-      </Breadcrumb> */}
       <div className='h1-class'>
         <div className='h1-aditzak'>
           <h1>Aditz laguntzailea</h1>
