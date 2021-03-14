@@ -1,25 +1,23 @@
-import "./App.css";
-import React, { Fragment } from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
-import { GoiburuaPod } from "./components/pods/goiburua.pod";
-import { HasieraScene } from "./components/scenes/hasiera.scene";
-import { AditzakScene } from "./components/scenes/aditzak.scene";
-import { HoniBuruzScene } from "./components/scenes/honiburuz.scene";
-import { OinaScene } from "./components/scenes/oina.scene";
+import './App.css';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import routes from 'config/router/routes';
+import Goiburua from 'common/Goiburua';
+import Oina from 'components/Oina';
 
 function App() {
   return (
-    <HashRouter>
-      <Switch>
-        <Fragment>
-          <GoiburuaPod />
-          <Route path="/" component={HasieraScene} exact></Route>
-          <Route path="/aditzak" component={AditzakScene} exact></Route>
-          <Route path="/honiburuz" component={HoniBuruzScene} exact></Route>
-          <OinaScene />
-        </Fragment>
-      </Switch>
-    </HashRouter>
+    <Router>
+      <Goiburua />
+      <Suspense fallback='Kargatzen...'>
+        <Switch>
+          {routes.map(({path, component: Component}) => (
+            <Route path={path} component={Component} key={path} exact />
+          ))}
+        </Switch>
+      </Suspense>
+      <Oina />
+    </Router>
   );
 }
 

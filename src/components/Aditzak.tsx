@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
-import Container from "react-bootstrap/Container";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import ToggleButton from "react-bootstrap/ToggleButton";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import React, { useState, useEffect, useCallback } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import Container from 'react-bootstrap/Container';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import {
   batua,
   bizkaiera,
@@ -32,21 +32,22 @@ import {
   nor_nori_nork,
   ezDaTopatu,
   bilatuAditza,
-} from "../constants/aditzak.constants";
+} from '../core/constants/aditzak.constants';
 
-export const AditzakPod: React.FC = () => {
+const Aditzak: React.FC = () => {
+
   const [indikatiboa, setIndikatiboa] = useState<any>(indikatiboaBatua);
   const [ahalera, setAhalera] = useState<any>(ahaleraBatua);
   const [subjuntiboa, setSubjuntiboa] = useState<any>(subjuntiboaBatua);
   const [agintera, setAgintera] = useState<any>(aginteraBatua);
-  const [aditzEredua, setAditzEredua] = useState<any>("");
-  const [aditzModua, setAditzModua] = useState<any>("");
-  const [aditzAldia, setAditzAldia] = useState<any>("");
-  const [aditzMota, setAditzMota] = useState<any>("");
-  const [norkIz, setNorkIz] = useState<any>("");
-  const [noriIz, setNoriIz] = useState<any>("");
-  const [norIz, setNorIz] = useState<any>("");
-  const [emaitza, setEmaitza] = useState<any>("");
+  const [aditzEredua, setAditzEredua] = useState<any>('');
+  const [aditzModua, setAditzModua] = useState<any>('');
+  const [aditzAldia, setAditzAldia] = useState<any>('');
+  const [aditzMota, setAditzMota] = useState<any>('');
+  const [norkIz, setNorkIz] = useState<any>('');
+  const [noriIz, setNoriIz] = useState<any>('');
+  const [norIz, setNorIz] = useState<any>('');
+  const [emaitza, setEmaitza] = useState<any>('');
 
   const norkDesgaitu = aditzMota !== nor_nork && aditzMota !== nor_nori_nork;
   const noriDesgaitu = aditzMota !== nor_nori && aditzMota !== nor_nori_nork;
@@ -71,19 +72,19 @@ export const AditzakPod: React.FC = () => {
       setAgintera(aginteraZuberera);
     }
     setAditzEredua(value);
-    setAditzModua("");
-    setAditzAldia("");
-    setAditzMota("");
-    setNorkIz("");
-    setNoriIz("");
-    setNorIz("");
+    setAditzModua('');
+    setAditzAldia('');
+    setAditzMota('');
+    setNorkIz('');
+    setNoriIz('');
+    setNorIz('');
   };
 
   const aditzMotaAldaketa = (value: any) => {
     setAditzMota(value);
-    setNorkIz("");
-    setNoriIz("");
-    setNorIz("");
+    setNorkIz('');
+    setNoriIz('');
+    setNorIz('');
   };
 
   const emaitzaBilatu = useCallback(() => {
@@ -107,7 +108,7 @@ export const AditzakPod: React.FC = () => {
             : ezDaTopatu
         );
       } else if (norIz && noriIz && norkIz && aditzMota === nor_nori_nork) {
-        if (norIz === "haiek" || norIz === "eurak") {
+        if (norIz === 'haiek' || norIz === 'eurak') {
           setEmaitza(
             aditzModua?.[aditzAldia]?.[aditzMota]?.plurala?.[norkIz]?.[noriIz]
               ? aditzModua?.[aditzAldia]?.[aditzMota]?.plurala?.[norkIz]?.[
@@ -115,7 +116,7 @@ export const AditzakPod: React.FC = () => {
                 ]
               : ezDaTopatu
           );
-        } else if (norIz === "hura" || norIz === "bera") {
+        } else if (norIz === 'hura' || norIz === 'bera') {
           setEmaitza(
             aditzModua?.[aditzAldia]?.[aditzMota]?.singularra?.[norkIz]?.[
               noriIz
@@ -128,19 +129,19 @@ export const AditzakPod: React.FC = () => {
         }
       }
     } else {
-      setEmaitza("");
+      setEmaitza('');
     }
     // eslint-disable-next-line
   },[aditzEredua, aditzModua, aditzAldia, aditzMota, norkIz, noriIz, norIz]);
 
   const filtroakGarbitu = () => {
-    setAditzEredua("");
-    setAditzModua("");
-    setAditzAldia("");
-    setAditzMota("");
-    setNorkIz("");
-    setNoriIz("");
-    setNorIz("");
+    setAditzEredua('');
+    setAditzModua('');
+    setAditzAldia('');
+    setAditzMota('');
+    setNorkIz('');
+    setNoriIz('');
+    setNorIz('');
   };
 
   useEffect(() => {
@@ -148,30 +149,46 @@ export const AditzakPod: React.FC = () => {
     // eslint-disable-next-line
   }, [aditzModua, aditzAldia, aditzMota, norkIz, noriIz, norIz]);
 
+
+
   return (
     <>
+      {/*       <Breadcrumb>
+        <Breadcrumb.Item>
+          <Link to='/'>Hasiera</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>Aditz laguntzailea</Breadcrumb.Item>
+      </Breadcrumb> */}
+      <div className='h1-class'>
+        <div className='h1-aditzak'>
+          <h1>Aditz laguntzailea</h1>
+        </div>
+      </div>
+      <div className='aditzak'>
+        <div className='div-aditzak'>
+        <>
       <Container>
-        <div className="row justify-content-between align-items-center">
-          <div className="col-8">
-            <div className="row">
+        <div className='row justify-content-between align-items-center'>
+          <div className='col-8'>
+            <div className='row'>
               <Container>
-                <div className="row justify-content-start aditzak-label">
-                  <label htmlFor="aditz-modua">ADITZ EREDUA</label>
+                <div className='row justify-content-start aditzak-label'>
+                  <label htmlFor='aditz-modua'>ADITZ EREDUA</label>
                 </div>
-                <div className="row justify-content-start">
+                <div className='row justify-content-start'>
                   <ToggleButtonGroup
-                    type="radio"
-                    name="aditz-eredua"
+                    type='radio'
+                    name='aditz-eredua'
                     value={aditzEredua}
                     onChange={(e: string) => aditzEreduAldaketa(e)}
                   >
-                    <ToggleButton variant="primary" value={batua}>
+                    <ToggleButton variant='primary' value={batua}>
                       Batua
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={bizkaiera}>
+                    <ToggleButton variant='primary' value={bizkaiera}>
                       Bizkaiera
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={zuberera}>
+                    <ToggleButton variant='primary' value={zuberera}>
                       Zuberera
                     </ToggleButton>
                   </ToggleButtonGroup>
@@ -179,36 +196,36 @@ export const AditzakPod: React.FC = () => {
               </Container>
             </div>
 
-            <div className="row">
+            <div className='row'>
               <Container>
-                <div className="row justify-content-start aditzak-label">
-                  <label htmlFor="aditz-modua">MODUA</label>
+                <div className='row justify-content-start aditzak-label'>
+                  <label htmlFor='aditz-modua'>MODUA</label>
                 </div>
-                <div className="row justify-content-start">
+                <div className='row justify-content-start'>
                   <ToggleButtonGroup
-                    type="radio"
-                    name="aditz-modua"
+                    type='radio'
+                    name='aditz-modua'
                     value={aditzModua}
                     onChange={(e: any) => setAditzModua(e)}
                   >
                     <ToggleButton
-                      variant="primary"
+                      variant='primary'
                       value={indikatiboa}
                       defaultChecked
                     >
                       Indikatiboa
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={ahalera} disabled>
+                    <ToggleButton variant='primary' value={ahalera} disabled>
                       Ahalera
                     </ToggleButton>
                     <ToggleButton
-                      variant="primary"
+                      variant='primary'
                       value={subjuntiboa}
                       disabled
                     >
                       Subjuntiboa
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={agintera} disabled>
+                    <ToggleButton variant='primary' value={agintera} disabled>
                       Agintera
                     </ToggleButton>
                   </ToggleButtonGroup>
@@ -216,28 +233,28 @@ export const AditzakPod: React.FC = () => {
               </Container>
             </div>
 
-            <div className="row">
+            <div className='row'>
               <Container>
-                <div className="row justify-content-start aditzak-label">
-                  <label htmlFor="aditz-mota">MOTA</label>
+                <div className='row justify-content-start aditzak-label'>
+                  <label htmlFor='aditz-mota'>MOTA</label>
                 </div>
-                <div className="row justify-start-center">
+                <div className='row justify-start-center'>
                   <ToggleButtonGroup
-                    type="radio"
-                    name="aditz-mota"
+                    type='radio'
+                    name='aditz-mota'
                     value={aditzMota}
                     onChange={(e: any) => aditzMotaAldaketa(e)}
                   >
-                    <ToggleButton variant="primary" value={nor}>
+                    <ToggleButton variant='primary' value={nor}>
                       Nor
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={nor_nori}>
+                    <ToggleButton variant='primary' value={nor_nori}>
                       Nor-Nori
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={nor_nork}>
+                    <ToggleButton variant='primary' value={nor_nork}>
                       Nor-Nork
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={nor_nori_nork}>
+                    <ToggleButton variant='primary' value={nor_nori_nork}>
                       Nor-Nori-Nork
                     </ToggleButton>
                   </ToggleButtonGroup>
@@ -245,31 +262,31 @@ export const AditzakPod: React.FC = () => {
               </Container>
             </div>
 
-            <div className="row">
+            <div className='row'>
               <Container>
-                <div className="row justify-content-start aditzak-label">
-                  <label htmlFor="aditz-aldia">ALDIA</label>
+                <div className='row justify-content-start aditzak-label'>
+                  <label htmlFor='aditz-aldia'>ALDIA</label>
                 </div>
-                <div className="row justify-content-start">
+                <div className='row justify-content-start'>
                   <ToggleButtonGroup
-                    type="radio"
-                    name="aditz-aldia"
+                    type='radio'
+                    name='aditz-aldia'
                     value={aditzAldia}
                     onChange={(e: any) => setAditzAldia(e)}
                   >
-                    <ToggleButton variant="primary" value={orain}>
+                    <ToggleButton variant='primary' value={orain}>
                       Orain (Erreala)
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={lehen}>
+                    <ToggleButton variant='primary' value={lehen}>
                       Lehen
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={baldintza}>
+                    <ToggleButton variant='primary' value={baldintza}>
                       Baldintza
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={etorkizunekoa}>
+                    <ToggleButton variant='primary' value={etorkizunekoa}>
                       Etorkizunekoa{/*  (Litekeena) */}
                     </ToggleButton>
-                    <ToggleButton variant="primary" value={iraganekoa}>
+                    <ToggleButton variant='primary' value={iraganekoa}>
                       Iraganekoa{/*  (Ezinezkoa) */}
                     </ToggleButton>
                   </ToggleButtonGroup>
@@ -277,200 +294,200 @@ export const AditzakPod: React.FC = () => {
               </Container>
             </div>
           </div>
-          <div className="col">
-            <div className="row">
+          <div className='col'>
+            <div className='row'>
               <Container>
-                <div className="row">
-                  <div className="col">
-                    <div className="row justify-content-center align-items-center aditzak-label">
-                      <label htmlFor="norkIz">Nork</label>
+                <div className='row'>
+                  <div className='col'>
+                    <div className='row justify-content-center align-items-center aditzak-label'>
+                      <label htmlFor='norkIz'>Nork</label>
                     </div>
-                    <div className="row justify-content-center align-items-center">
+                    <div className='row justify-content-center align-items-center'>
                       <ToggleButtonGroup
                         vertical
-                        type="radio"
-                        name="norkIz"
+                        type='radio'
+                        name='norkIz'
                         value={norkIz}
                         onChange={(e: any) => setNorkIz(e)}
                       >
                         <ToggleButton
-                          variant="secondary"
-                          value={"nik"}
+                          variant='secondary'
+                          value={'nik'}
                           disabled={norkDesgaitu}
                         >
                           nik
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"hik"}
+                          variant='secondary'
+                          value={'hik'}
                           disabled={norkDesgaitu}
                         >
                           hik
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "berak" : "hark"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'berak' : 'hark'}
                           disabled={norkDesgaitu}
                         >
-                          {aditzEredua === bizkaiera ? "berak" : "hark"}
+                          {aditzEredua === bizkaiera ? 'berak' : 'hark'}
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"guk"}
+                          variant='secondary'
+                          value={'guk'}
                           disabled={norkDesgaitu}
                         >
                           guk
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zuk"}
+                          variant='secondary'
+                          value={'zuk'}
                           disabled={norkDesgaitu}
                         >
                           zuk
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zuek"}
+                          variant='secondary'
+                          value={'zuek'}
                           disabled={norkDesgaitu}
                         >
                           zuek
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "eurek" : "haiek"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'eurek' : 'haiek'}
                           disabled={norkDesgaitu}
                         >
-                          {aditzEredua === bizkaiera ? "eurek" : "haiek"}
+                          {aditzEredua === bizkaiera ? 'eurek' : 'haiek'}
                         </ToggleButton>
                       </ToggleButtonGroup>
                     </div>
                   </div>
 
-                  <div className="col">
-                    <div className="row justify-content-center align-items-center aditzak-label">
-                      <label htmlFor="noriIz">Nori</label>
+                  <div className='col'>
+                    <div className='row justify-content-center align-items-center aditzak-label'>
+                      <label htmlFor='noriIz'>Nori</label>
                     </div>
-                    <div className="row justify-content-center align-items-center">
+                    <div className='row justify-content-center align-items-center'>
                       <ToggleButtonGroup
                         vertical
-                        type="radio"
-                        name="noriIz"
+                        type='radio'
+                        name='noriIz'
                         value={noriIz}
                         onChange={(e: any) => setNoriIz(e)}
                       >
                         <ToggleButton
-                          variant="secondary"
-                          value={"niri"}
+                          variant='secondary'
+                          value={'niri'}
                           disabled={noriDesgaitu}
                         >
                           niri
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"hiri"}
+                          variant='secondary'
+                          value={'hiri'}
                           disabled={noriDesgaitu}
                         >
                           hiri
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "berari" : "hari"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'berari' : 'hari'}
                           disabled={noriDesgaitu}
                         >
-                          {aditzEredua === bizkaiera ? "berari" : "hari"}
+                          {aditzEredua === bizkaiera ? 'berari' : 'hari'}
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"guri"}
+                          variant='secondary'
+                          value={'guri'}
                           disabled={noriDesgaitu}
                         >
                           guri
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zuri"}
+                          variant='secondary'
+                          value={'zuri'}
                           disabled={noriDesgaitu}
                         >
                           zuri
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zuei"}
+                          variant='secondary'
+                          value={'zuei'}
                           disabled={noriDesgaitu}
                         >
                           zuei
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "eurei" : "haiei"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'eurei' : 'haiei'}
                           disabled={noriDesgaitu}
                         >
-                          {aditzEredua === bizkaiera ? "eurei" : "haiei"}
+                          {aditzEredua === bizkaiera ? 'eurei' : 'haiei'}
                         </ToggleButton>
                       </ToggleButtonGroup>
                     </div>
                   </div>
 
-                  <div className="col">
-                    <div className="row justify-content-center align-items-center aditzak-label">
-                      <label htmlFor="norIz">Nor</label>
+                  <div className='col'>
+                    <div className='row justify-content-center align-items-center aditzak-label'>
+                      <label htmlFor='norIz'>Nor</label>
                     </div>
-                    <div className="row justify-content-center align-items-center">
+                    <div className='row justify-content-center align-items-center'>
                       <ToggleButtonGroup
                         vertical
-                        type="radio"
-                        name="norIz"
+                        type='radio'
+                        name='norIz'
                         value={norIz}
                         onChange={(e: any) => setNorIz(e)}
                       >
                         <ToggleButton
-                          variant="secondary"
-                          value={"ni"}
+                          variant='secondary'
+                          value={'ni'}
                           disabled={norDesgaitu}
                         >
                           ni
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"hi"}
+                          variant='secondary'
+                          value={'hi'}
                           disabled={norDesgaitu}
                         >
                           hi
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "bera" : "hura"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'bera' : 'hura'}
                           disabled={norDesgaituHuraHaiek}
                         >
-                          {aditzEredua === bizkaiera ? "bera" : "hura"}
+                          {aditzEredua === bizkaiera ? 'bera' : 'hura'}
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"gu"}
+                          variant='secondary'
+                          value={'gu'}
                           disabled={norDesgaitu}
                         >
                           gu
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zu"}
+                          variant='secondary'
+                          value={'zu'}
                           disabled={norDesgaitu}
                         >
                           zu
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={"zuek"}
+                          variant='secondary'
+                          value={'zuek'}
                           disabled={norDesgaitu}
                         >
                           zuek
                         </ToggleButton>
                         <ToggleButton
-                          variant="secondary"
-                          value={aditzEredua === bizkaiera ? "eurak" : "haiek"}
+                          variant='secondary'
+                          value={aditzEredua === bizkaiera ? 'eurak' : 'haiek'}
                           disabled={norDesgaituHuraHaiek}
                         >
-                          {aditzEredua === bizkaiera ? "eurak" : "haiek"}
+                          {aditzEredua === bizkaiera ? 'eurak' : 'haiek'}
                         </ToggleButton>
                       </ToggleButtonGroup>
                     </div>
@@ -481,61 +498,61 @@ export const AditzakPod: React.FC = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className='row'>
           <Container>
-            <div className="row justify-content-center align-items-center">
-              <div className="col-2 center">
-                <div className="row justify-content-center align-items-center">
-                  <div className="col right">
+            <div className='row justify-content-center align-items-center'>
+              <div className='col-2 center'>
+                <div className='row justify-content-center align-items-center'>
+                  <div className='col right'>
                     <OverlayTrigger
-                      key={"top"}
-                      placement={"top"}
+                      key={'top'}
+                      placement={'top'}
                       overlay={
-                        <Tooltip id={`tooltip-${"top"}`}>
+                        <Tooltip id={`tooltip-${'top'}`}>
                           Bilatu aditz berri bat
                         </Tooltip>
                       }
                     >
                       <img
-                        className="ikonoa"
-                        src="assets/bilatu.png"
+                        className='ikonoa'
+                        src='assets/bilatu.png'
                         onClick={filtroakGarbitu}
-                        alt="Bilaketa berria"
-                        /* title="Bilatu berriro" */
+                        alt='Bilaketa berria'
+                        /* title='Bilatu berriro' */
                       />
                     </OverlayTrigger>
                   </div>
-                  <div className="col etiketa left">Bilatu berriro</div>
+                  <div className='col etiketa left'>Bilatu berriro</div>
                 </div>
               </div>
-              <div className="col-2 center">
-                <div className="row">
-                  <div className="col right">
+              <div className='col-2 center'>
+                <div className='row'>
+                  <div className='col right'>
                     <OverlayTrigger
-                      key={"top"}
-                      placement={"top"}
+                      key={'top'}
+                      placement={'top'}
                       overlay={
-                        <Tooltip id={`tooltip-${"top"}`}>
+                        <Tooltip id={`tooltip-${'top'}`}>
                           Kopiatu aditza
                         </Tooltip>
                       }
                     >
                       <CopyToClipboard text={emaitza}>
                         <img
-                          className="ikonoa"
-                          src="assets/kopiatu.png"
-                          alt="Emaitza kopiatu"
-                          /* title="Bilatutako aditza kopiatu" */
+                          className='ikonoa'
+                          src='assets/kopiatu.png'
+                          alt='Emaitza kopiatu'
+                          /* title='Bilatutako aditza kopiatu' */
                         />
                       </CopyToClipboard>
                     </OverlayTrigger>
                   </div>
-                  <div className="col etiketa left">Kopiatu emaitza</div>
+                  <div className='col etiketa left'>Kopiatu emaitza</div>
                 </div>
               </div>
-              <div className="col-8 center">
+              <div className='col-8 center'>
                 <input
-                  className="aditzak-input"
+                  className='aditzak-input'
                   placeholder={bilatuAditza}
                   value={emaitza}
                   disabled
@@ -546,5 +563,10 @@ export const AditzakPod: React.FC = () => {
         </div>
       </Container>
     </>
+        </div>
+      </div>
+    </>
   );
 };
+
+export default Aditzak;
